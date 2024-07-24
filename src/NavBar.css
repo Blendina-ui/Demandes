@@ -1,0 +1,848 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  background: #5372F0;
+}
+ .navbar{
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10%;
+  background: #5372F0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000; 
+} 
+.navbar ul {
+  list-style-type: none;  
+  margin: 0;
+  padding: 0;
+  display: flex;  
+  margin-left: auto; 
+}
+.navbar a {
+  display: block;
+  position: relative;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 40px;
+  color: white;  
+  text-align: center;  
+  padding: 14px 20px;  
+  text-decoration: none;  
+  justify-content: flex-end;
+}
+.navbar a::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: .3s;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
+
+/* Profil  ----------------------------------------------------------------------------- */
+.wrapperLoggin {
+  width: 500px;
+  padding: 40px 30px 50px 30px;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 100px;
+}
+
+.wrapperLoggin header {
+  font-size: 35px;
+  font-weight: 600;
+  color: #555;
+}
+
+.wrapperLoggin #loginForm {
+  margin: 40px 0;
+}
+
+#loginForm .fieldEmail,
+#loginForm .fieldPass {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@keyframes shake {
+  0%, 100% {
+    margin-left: 0px;
+  }
+  20%, 80% {
+    margin-left: -12px;
+  }
+  40%, 60% {
+    margin-left: 12px;
+  }
+}
+
+#loginForm .fieldEmail.emailLogIn .input-area,
+#loginForm .fieldPass.passwordLogin .input-area {
+  height: 50px;
+  width: 100%;
+  position: relative;
+}
+
+#loginForm input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0 45px;
+  font-size: 18px;
+  background: none;
+  caret-color: #5372F0;
+  border-radius: 5px;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  transition: all 0.2s ease;
+}
+
+#loginForm .fieldEmail.emailLogIn input:focus,
+#loginForm .fieldPass.passwordLogin input:focus,
+#loginForm .fieldEmail.emailLogIn input:valid,
+#loginForm .fieldPass.passwordLogin input:valid {
+  border-color: #5372F0;
+}
+
+#loginForm .fieldEmail.emailLogIn input.error,
+#loginForm .fieldPass.passwordLogin input.error {
+  border-color: #dc3545;
+  animation: shake 0.3s ease-in-out;
+}
+
+.fieldEmail .input-area i.error-icon,
+.fieldPass .input-area i.error-icon{
+  display: none;
+}
+
+#loginForm .fieldEmail.emailLogIn input.error ~ .error-icon,
+#loginForm .fieldPass.passwordLogin input.error ~ .error-icon {
+  display: block;
+  color: #dc3545;
+}
+
+.fieldEmail .input-area i,
+.fieldPass .input-area i {
+  position: absolute;
+  top: 50%;
+  font-size: 18px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.input-area .icon {
+  left: 15px;
+  color: #bfbfbf;
+  transition: color 0.2s ease;
+}
+
+#loginForm .fieldEmail.emailLogIn input:focus ~ .icon,
+#loginForm .fieldPass.passwordLogin input:focus ~ .icon,
+#loginForm .fieldEmail.emailLogIn input:valid ~ .icon,
+#loginForm .fieldPass.passwordLogin input:valid ~ .icon {
+  color: #5372F0;
+}
+
+#loginForm .fieldEmail.emailLogIn input.error:focus ~ .icon,
+#loginForm .fieldPass.passwordLogin input.error:focus ~ .icon {
+  color: #bfbfbf;
+}
+
+#loginForm input::placeholder {
+  color: #bfbfbf;
+  font-size: 17px;
+}
+
+#loginForm .fieldEmail.emailLogIn .error-txt,
+#loginForm .fieldPass.passwordLogin .error-txt {
+  color: #dc3545;
+  text-align: left;
+  margin-top: 5px;
+}
+
+#loginForm .fieldEmail.emailLogIn .error-txt,
+#loginForm .fieldPass.passwordLogin .error-txt {
+  display: none;
+}
+
+#loginForm .fieldEmail.emailLogIn input.error ~ .error-txt,
+#loginForm .fieldPass.passwordLogin input.error ~ .error-txt {
+  display: block;
+}
+
+#loginForm .pass-txt {
+  text-align: left;
+  margin-top: -10px;
+}
+
+.wrapperLoggin a {
+  color: #5372F0;
+  text-decoration: none;
+}
+
+.wrapperLoggin a:hover {
+  text-decoration: underline;
+}
+
+#loginForm button[type="submit"] {
+  height: 50px;
+  margin-top: 30px;
+  color: #fff;
+  padding: 0;
+  border: none;
+  background: #5372F0;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#loginForm button[type="submit"]:hover {
+  background: #2c52ed;
+}
+
+.error-txt.show {
+  display: block !important;
+}
+/* Demandes  ----------------------------------------------------------------------------- */
+
+.wrapperDemandes {
+  width: 70%;
+  padding: 40px 30px 50px 30px;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 80px;
+  overflow: hidden;
+  
+}
+
+.wrapperDemandes header {
+  font-size: 35px;
+  font-weight: 600;
+  color: #555;
+}
+
+.wrapperDemandes #DemandesForm {
+  margin: 40px 0;
+}
+
+#DemandesForm .field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#DemandesForm .field .input-area {
+  height: 50px;
+  width: 100%;
+  position: relative;
+}
+
+#DemandesForm input[type="text"],
+#DemandesForm input[type="email"],
+#DemandesForm select,
+#DemandesForm input[type="date"]{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0 45px;
+  font-size: 18px;
+  background: none;
+  caret-color: #5372F0;
+  border-radius: 5px;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  transition: all 0.2s ease;
+}
+
+#DemandesForm input:focus,
+#DemandesForm select:focus,
+#DemandesForm input:valid,
+#DemandesForm select:valid {
+  border-color: #5372F0;
+}
+
+#DemandesForm input.error,
+#DemandesForm select.error {
+  border-color: #dc3545;
+  animation: shake 0.3s ease-in-out;
+}
+
+#DemandesForm .field .input-area i.error-icon {
+  display: none;
+}
+
+#DemandesForm input.error ~ .error-icon,
+#DemandesForm select.error ~ .error-icon {
+  display: block;
+  color: #dc3545;
+}
+
+#DemandesForm .field .input-area i {
+  position: absolute;
+  top: 50%;
+  font-size: 18px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+#DemandesForm .input-area .icon {
+  left: 15px;
+  color: #bfbfbf;
+  transition: color 0.2s ease;
+}
+
+#DemandesForm input:focus ~ .icon,
+#DemandesForm select:focus ~ .icon,
+#DemandesForm input:valid ~ .icon,
+#DemandesForm select:valid ~ .icon {
+  color: #5372F0;
+}
+
+#DemandesForm input.error:focus ~ .icon,
+#DemandesForm select.error:focus ~ .icon {
+  color: #bfbfbf;
+}
+
+#DemandesForm input::placeholder,
+#DemandesForm select::placeholder {
+  color: #bfbfbf;
+  font-size: 17px;
+}
+
+#DemandesForm .error-txt {
+  color: #dc3545;
+  text-align: left;
+  margin-top: 5px;
+}
+
+#DemandesForm input.error ~ .error-txt,
+#DemandesForm select.error ~ .error-txt {
+  display: block;
+}
+
+.wrapperDemandes a {
+  color: #5372F0;
+  text-decoration: none;
+}
+
+.wrapperDemandes a:hover {
+  text-decoration: underline;
+}
+
+#DemandesForm input[type="submit"] {
+  height: 50px;
+  width: 70%;
+  margin-top: 30px;
+  color: #fff;
+  padding: 0;
+  border: none;
+  background: #5372F0;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+#DemandesForm input[type="submit"]:hover {
+  background: #2c52ed;
+}
+
+.btnmatin{
+  display:flex;
+  margin-left: 20px;
+}
+.btnmidi{
+  display: flex;
+  margin-left: 20px;
+}
+.Inputmatin{
+  margin-right: 15px;
+}
+.Inputmidi{
+  margin-right: 15px;
+}
+
+.input-area .txtComment{
+  display: flex;
+  width: 540px;
+  border-radius: 2px;
+}
+
+/* MES DEMANDES ----------------------------------------------------------------------------- */
+
+.wrapperMesDemandes {
+  width: 80%;
+  padding: 40px 30px 50px 30px;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 80px;
+  margin: auto;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; 
+}
+.wrapperMesDemandes header {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.requests-table-Mes-Demandes {
+  width: 100%;
+  border-collapse: collapse;
+}
+.requests-table-Mes-Demandes th, .requests-table-Mes-Demandes td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+.requests-table-Mes-Demandes th {
+  background-color: #5372F0; 
+  color: #fff;
+}
+.requests-table-Mes-Demandes tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+/* .requests-table-Mes-Demandes tbody tr:hover {
+  background-color: #e2e2e2;
+} */
+.modify-btn-Mes-Demandes {
+  background-color: #5372F0;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 8px;
+}
+.modify-btn-Mes-Demandes:hover {
+  background-color: #2c52ed;
+}
+.delete-btn-Mes-Demandes {
+  background-color: #5372F0;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 8px;
+}
+.delete-btn-Mes-Demandes:hover {
+  background-color: #2c52ed;
+}
+
+.labels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  margin-bottom: 20px;
+}
+
+.LabelMesDemandes {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; 
+}
+
+.LabelMesDemandes .circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.LabelMesDemandes.approved .circle {
+  background-color: rgba(46, 226, 46, 0.714);
+}
+
+.LabelMesDemandes.refuser .circle {
+  background-color: red;
+}
+
+.LabelMesDemandes.pendingg .circle {
+  background-color: rgba(246, 187, 76, 0.781);
+}
+.LabelMesDemandes.notification .circle{
+  background-color: rgba(79, 196, 241, 0.807);
+}
+
+
+
+/* Modification Demandes  ----------------------------------------------------------------------------- */
+.wrapperModifDemandes {
+  width: 100%;
+  max-width: 800px; 
+  margin: 80px auto 20px; 
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wrapperModifDemandes header {
+  font-size: 35px;
+  font-weight: 600;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+  
+}
+
+/* Style du formulaire */
+.modify-form {
+  width: 100%; 
+}
+
+.modify-form .field {
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 20px;
+}
+
+.modify-form .field label {
+  width: 250px; 
+  font-weight: 500;
+  color: #333;
+}
+
+.modify-form .field .LabelActuelle{
+  width: 250px; 
+  font-weight: 100;
+  color: red;
+}
+
+.modify-form input[type="number"],
+.modify-form input[type="date"],
+.modify-form select {
+  flex: 1; 
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: #555;
+  border: 1px solid #5372F0;
+  transition: border-color 0.2s ease;
+}
+
+.modify-form .DateActuelle[type="date"],
+.modify-form .TypeDeCongeActuelle{
+  flex: 1; 
+  padding: 10px;
+  font-size: 16px;
+  color: red;
+  border-radius: 5px;
+  border: 1px solid black;
+  transition: border-color 0.2s ease;
+}
+
+
+
+.modify-form input:focus,
+.modify-form select:focus {
+  border-color: #5372F0;
+}
+
+.modify-form input[type="submit"] {
+  width: 100%;
+  height: 50px;
+  margin-top: 30px;
+  color: #fff;
+  font-size: 20px;
+  background-color: #5372F0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modify-form input[type="submit"]:hover {
+  background-color: #2c52ed;
+}
+
+.modify-form input:focus ~ .icon
+{
+color: #5372F0;
+}
+/* Validation  ----------------------------------------------------------------------------- */
+
+.wrapperValidation {
+  width: 90%;
+  padding: 40px 30px 50px 30px;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  margin: auto;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+}
+.wrapperValidation header {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.table-container-Validation {
+  overflow-x: auto;
+}
+.requests-table-Validation {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+.requests-table-Validation th, .requests-table-Validation td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.requests-table-Validation th {
+  background-color: #5372F0;
+  color: #fff;
+}
+.requests-table-Validation tbody tr:nth-child(even) {
+  background-color: #f5f5f5; 
+}
+/* .requests-table-Validation tbody tr:hover {
+  background-color: #e0e0e0; 
+} */
+.actions {
+  display: flex;
+  justify-content: center;
+}
+.actions button {
+  margin: 10px;
+  padding: 8px 16px;
+  
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px; 
+}
+.accept-btn {
+  background-color: rgba(2, 128, 13, 0.756); 
+  color: #fff;
+  margin-right: 10px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  border: none;
+}
+.refuse-btn {
+  background-color: #d9534f; 
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 5px;
+  border: none;
+}
+button:hover {
+  opacity: 0.8;
+}
+
+.delete-btn{
+  background-color: #5372f000;
+  color: #fff;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 8px;
+  font-size: 15px;
+
+}
+
+.delete-btn:hover {
+  background-color: rgba(44, 83, 237, 0.785);
+}
+
+
+
+/* Add this to your CSS file */
+.accepted {
+  background-color: rgba(22, 186, 22, 0.725) !important;
+  color: white !important;
+}
+
+.refused {
+  background-color: red !important;
+  color: white !important;
+}
+
+.pending {
+  background-color: orange !important;
+  color: white !important;
+}
+.notification-type {
+  background-color: lightblue !important;
+}
+
+.ModalComment{
+  width: 80%;
+}
+
+.btnModalSubmit, .btnModalAnnuler{
+  height: 50px;
+  width: 20%;
+  margin-top: 30px;
+  margin-right: 10px;
+  color: #fff;
+  padding: 0;
+  border: none;
+  background: #5372F0;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+}
+
+.btnModalSubmit:hover, .btnModalAnnuler:hover {
+  background-color: #2c52ed;
+}
+.ModaltitleH2{
+  margin-bottom: 30px;
+  margin-left: 180px;
+}
+
+
+/* Agenda.css ----------------------------------------------------------------------------- */
+.wrapperAgenda {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f9fc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wrapperAgenda header {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.react-calendar {
+  width: 100%;
+  max-width: 1000px;
+  background-color: white;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.react-calendar__navigation {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.react-calendar__navigation button {
+  color: #6f48eb;
+  min-width: 44px;
+  background: none;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #f8f8fa;
+}
+
+.react-calendar__month-view__weekdays {
+  font-size: 12px;
+  color: #6f48eb;
+  text-transform: uppercase;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+
+.react-calendar__tile {
+  max-width: 100px;
+  height: 100px;
+  text-align: center;
+  padding: 10px;
+  background: none;
+  position: relative;
+}
+
+.react-calendar__tile--now {
+  background: #6f48eb33;
+  color: #6f48eb;
+  border-radius: 50%;
+}
+
+.react-calendar__tile--active {
+  background: #6f48eb;
+  color: white;
+  border-radius: 50%;
+}
+
+.react-calendar__tile--hasActive {
+  background: #6f48eb33;
+  color: #6f48eb;
+}
+
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd {
+  background: #6f48eb;
+  color: white;
+  border-radius: 50%;
+}
+
+.react-calendar__tile--range {
+  background: #6f48eb33;
+  color: #6f48eb;
+}
+
+.react-calendar__tile ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 12px;
+  color: #333;
+}
+
+.react-calendar__tile .dot {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #6f48eb;
+  border-radius: 50%;
+}
