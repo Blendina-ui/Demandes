@@ -4,6 +4,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { addDoc, collection, getDoc, doc } from 'firebase/firestore'
 import { auth, db } from './firebaseConfig'
 
+
 export const Demandes = () => {
   const [user, setUser] = useState(null)
   const [email, setEmail] = useState('')
@@ -25,6 +26,7 @@ export const Demandes = () => {
           const userData = userDoc.data()
           setUser(userData)
           setEmail(u.email) // Met à jour l'état de l'email avec l'email de l'utilisateur connecté
+         
         } else {
           console.error("User document not found")
         }

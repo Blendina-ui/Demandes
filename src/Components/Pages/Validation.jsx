@@ -23,11 +23,15 @@ export const Validation = () => {
     
     fetchRequests()
   }, [])
-
+  //mettre à jour le statut d'une demande spécifique dans une liste de demandes
   const updateRequestStatus = async (index, status, comment = '') => {
+    // requests pour éviter de modifier directement l'état actuel
     const updatedRequests = [...requests];
+    // met à jour le statut de la demande spécifiée par l'index avec la nouvelle valeur de status
     updatedRequests[index].status = status;
+    // met à jour le commentaire de refus de la demande spécifiée par l'index avec la nouvelle valeur de comment.
     updatedRequests[index].refuseComment = comment;
+    // met à jour l'état du composant avec la nouvelle liste de demandes modifiée.
     setRequests(updatedRequests);
 
     const requestDocRef = doc(db, 'demandes', updatedRequests[index].id)
@@ -45,7 +49,9 @@ export const Validation = () => {
 
   const handleSubmitRefuse = () => {
     updateRequestStatus(selectedRequestIndex, 'refused', refuseComment)
+    // ferme le modal après la soumission
     setModalIsOpen(false)
+    // réinitialise le champ de commentaire de refus pour qu'il soit vide pour la prochaine utilisation.
     setRefuseComment('')
   }
 

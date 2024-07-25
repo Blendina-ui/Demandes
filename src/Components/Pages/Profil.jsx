@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { getDoc, doc } from 'firebase/firestore'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from './firebaseConfig'
+import {  toast } from 'react-toastify'
+
+
 
 export const Profil = () => {
   const [email, setEmail] = useState('')
@@ -17,12 +20,18 @@ export const Profil = () => {
         const identifiantsU = await signInWithEmailAndPassword(auth, email, password)
         const user = identifiantsU.user // Récupère l'utilisateur authentifié
 
+        
+
         const userDoc = await getDoc(doc(db, 'users', user.uid))
         if (userDoc.exists()) {
           const userData = userDoc.data()
 
+          toast.success("Utilisateur connecté avec succès");
+          
+
           // Vérifie si l'utilisateur est un administrateur
           if (userData.admin) {
+        
             navigate('/validation')
           } else {
             navigate('/demandes')
@@ -32,8 +41,9 @@ export const Profil = () => {
         }
       } catch (error) {
         // En cas d'erreur, récupère le code et le message de l'erreur
-        const errorCode = error.code
-        const errorMessage = error.message
+        // const errorCode = error.code
+        // const errorMessage = error.message
+        toast.error("Mot de passe invalide");
         console.error('Error logging in:', errorCode, errorMessage)
       }
   }

@@ -7,6 +7,8 @@ import  { MesDemandes }  from "./Components/Pages/MesDemandes"
 import  { Validation }  from "./Components/Pages/Validation"
 import { Deconnexion } from './Components/Pages/Deconnexion'
 import { Agenda } from './Components/Pages/Agenda'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -30,15 +32,12 @@ function App() {
       <Routes>
         <Route path="/profil" element={<Profil />} />
         <Route path="/demandes" element={<Demandes setDemandes={handleSetDemandes} />} />
-        <Route
-          path="/mesDemandes"
-          element={<MesDemandes demandes={demandes} />}
-        />
+        <Route path="/mesDemandes" element={<MesDemandes demandes={demandes} />} />
         <Route path="/validation" element={<Validation />} />
         <Route path="/logout" element={<Deconnexion />} />
         <Route path="/agenda" element={<Agenda />} />
-       
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
